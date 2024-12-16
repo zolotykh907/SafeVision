@@ -1,0 +1,14 @@
+Запуск контейнера для работы с coral
+
+sudo docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb -v /home/egor/dockercoral/:/app/data -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1  --device=/dev/video0 coral-python:1 /bin/bash
+sudo docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb -v /home/egor/dockercoral/:/app/data --device=/dev/video0 coral-classify:0.1 /bin/bash
+или ./rundocker.sh в папке dockercoral
+
+в папке /app/data/movement
+для графики
+python3 main.py -m movenet_single_pose_lightning_ptq_edgetpu.tflite 
+
+
+
+
+https://github.com/google-coral/test_data/blob/master/
